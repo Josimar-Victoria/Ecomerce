@@ -2,17 +2,11 @@ import { Button, makeStyles } from '@material-ui/core';
 import accounting from 'accounting';
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { getBasketTotal } from '../../reducer';
 import { useStateValue } from '../../StateProvide';
 const Total = () => {
     const classes = useStyles();
     const [{basket}, dispatch] = useStateValue()
-
-    const getBasketTotal = () => {
-        const reducer = (accumulator, currentValue) =>
-          accumulator + currentValue.price;
-        const sum = basket?.reduce(reducer, 0);
-        return sum;
-      };
 
     return (
         <div className={classes.root}>
